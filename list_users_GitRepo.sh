@@ -17,18 +17,20 @@ API_URL="https://api.github.com"
 USERNAME=$username
 TOKEN=$token
 
-# User and Repository information
+# Checking the right number of commandline_arguements provided
 function helper {
-    #num_args=2
+    num_args=2
     echo "num of args are $#"
-    if [[ $# -ne 2 ]] # $# gives num_of arguements
+    if [[ $# -ne $num_args ]] # $# gives num_of arguements
     then
         echo "provide exactly 2 arguements"
         echo "Give Repo-owner and Repo-Name"
         exit 1
     fi
 }
-helper $@
+helper $@       # calling helper function with received arguements
+
+# User and Repository information
 REPO_OWNER=$1   #first arguement
 REPO_NAME=$2    #second arguement
 
